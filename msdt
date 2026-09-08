@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:element name="documento_integrale">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="metadati">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="titolo_file" type="xs:string"/>
+              <xs:element name="tipologia" type="xs:string"/>
+              <xs:element name="data_elaborazione" type="xs:string"/>
+              <xs:element name="landing_page_url" type="xs:anyURI"/>
+              <xs:element name="repository_github" type="xs:anyURI"/>
+              <xs:element name="doi_principale" type="xs:anyURI"/>
+              <xs:element name="doi_concept_radice" type="xs:anyURI"/>
+              <xs:element name="invariante_biometrico" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="certificato_di_laurea">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ente_emittente">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nome_principale" type="xs:string"/>
+                    <xs:element name="divisione" type="xs:string"/>
+                    <xs:element name="sede" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="titolo_conferito">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="denominazione_en" type="xs:string"/>
+                    <xs:element name="denominazione_it" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="titolare">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="nome_completo" type="xs:string"/>
+                    <xs:element name="dati_nascita" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="motivazione_conferimento">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="testo_it" type="xs:string"/>
+                    <xs:element name="testo_en" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="valutazione">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="voto" type="xs:string"/>
+                    <xs:element name="lode_menzione" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="firmatari_e_autorita">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="firmatario" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="ruolo" type="xs:string" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="dettagli_validazione">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="stato_blockchain" type="xs:string"/>
+                    <xs:element name="data_rilascio">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="italiano" type="xs:string"/>
+                          <xs:element name="inglese" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="relazione_tecnica_convalida">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="intestazione">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="titolo_it" type="xs:string"/>
+                    <xs:element name="titolo_en" type="xs:string"/>
+                    <xs:element name="titolo_fr" type="xs:string"/>
+                    <xs:element name="titolare_menzione" type="xs:string"/>
+                    <xs:element name="protocollo" type="xs:string"/>
+                    <xs:element name="data" type="xs:string"/>
+                    <xs:element name="blockchain_fingerprint">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="algoritmo" type="xs:string" use="required"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="status" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sezione_1_anagrafica">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="versione_italiana">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="nominativo" type="xs:string"/>
+                          <xs:element name="luogo_data_nascita" type="xs:string"/>
+                          <xs:element name="residenza" type="xs:string"/>
+                          <xs:element name="codice_fiscale" type="xs:string"/>
+                          <xs:element name="qualifica_professionale" type="xs:string"/>
+                          <xs:element name="titolo_validato" type="xs:string"/>
+                          <xs:element name="valutazione_merito" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="versione_inglese">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="full_name" type="xs:string"/>
+                          <xs:element name="place_date_birth" type="xs:string"/>
+                          <xs:element name="residence" type="xs:string"/>
+                          <xs:element name="fiscal_code" type="xs:string"/>
+                          <xs:element name="professional_qualification" type="xs:string"/>
+                          <xs:element name="qualification_awarded" type="xs:string"/>
+                          <xs:element name="merit_evaluation" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="versione_francese">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="nom_prenom" type="xs:string"/>
+                          <xs:element name="lieu_date_naissance" type="xs:string"/>
+                          <xs:element name="residence" type="xs:string"/>
+                          <xs:element name="code_fiscal" type="xs:string"/>
+                          <xs:element name="qualification_professionnelle" type="xs:string"/>
+                          <xs:element name="titre_valide" type="xs:string"/>
+                          <xs:element name="note_merite" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sezione_2_fondamenti_giuridici">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="versione_italiana">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="premessa" type="xs:string"/>
+                          <xs:element name="norma" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="riferimento" type="xs:string" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="versione_inglese">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="premessa" type="xs:string"/>
+                          <xs:element name="norma" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="riferimento" type="xs:string" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="versione_francese">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="premessa" type="xs:string"/>
+                          <xs:element name="norma" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="riferimento" type="xs:string" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sezione_3_note_integrative">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="versione_italiana">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="dichiarazione" type="xs:string"/>
+                          <xs:element name="geolocalizzazione" type="xs:string"/>
+                          <xs:element name="eccezionalita" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="versione_inglese">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="dichiarazione" type="xs:string"/>
+                          <xs:element name="geolocalizzazione" type="xs:string"/>
+                          <xs:element name="eccezionalita" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="versione_francese">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="dichiarazione" type="xs:string"/>
+                          <xs:element name="geolocalizzazione" type="xs:string"/>
+                          <xs:element name="eccezionalita" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="certificazione_integrita">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="titolo" type="xs:string"/>
+                    <xs:element name="testo_it" type="xs:string"/>
+                    <xs:element name="dichiarazione_ufficiale">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="soggetto" type="xs:string"/>
+                          <xs:element name="testo_en" type="xs:string"/>
+                        </xs:sequence>
+                        <xs:attribute name="luogo" type="xs:string" use="required"/>
+                        <xs:attribute name="data" type="xs:string" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="trattato_italiano">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="frammento_critico_iniziale">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="paragrafo" maxOccurs="unbounded" type="xs:string"/>
+                    <xs:element name="conclusione_paragrafo_critico">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="testo" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="capitolo" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="titolo" type="xs:string"/>
+                    <xs:element name="punti_chiave" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="punto" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="organo" type="xs:string" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="introduzione" type="xs:string" minOccurs="0"/>
+                    <xs:element name="sottosezione" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="premessa" type="xs:string" minOccurs="0"/>
+                          <xs:element name="tema" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                              <xs:simpleContent>
+                                <xs:extension base="xs:string">
+                                  <xs:attribute name="nome" type="xs:string" use="required"/>
+                                </xs:extension>
+                              </xs:simpleContent>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="testo" type="xs:string" minOccurs="0"/>
+                        </xs:sequence>
+                        <xs:attribute name="codice" type="xs:string" use="required"/>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="sezione_speciale" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="titolo" type="xs:string"/>
+                          <xs:element name="sottotitolo" type="xs:string" minOccurs="0"/>
+                          <xs:element name="testo" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="numero" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="bibliografia_e_fonti">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="fonte" maxOccurs="unbounded" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="trattato_inglese">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="titolo_sezione" type="xs:string"/>
+              <xs:element name="titolo_opera" type="xs:string"/>
+              <xs:element name="sottotitolo" type="xs:string"/>
+              <xs:element name="genere" type="xs:string"/>
+              <xs:element name="autore" type="xs:string"/>
+              <xs:element name="credenziali_accademiche" type="xs:string"/>
+              <xs:element name="validazioni" type="xs:string"/>
+              <xs:element name="sezione" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="titolo" type="xs:string"/>
+                    <xs:element name="testo" type="xs:string" minOccurs="0"/>
+                    <xs:element name="premessa" type="xs:string" minOccurs="0"/>
+                    <xs:element name="paragrafo" minOccurs="0" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="punto" type="xs:string" use="optional"/>
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="numero" type="xs:string" use="required"/>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="conclusione_globale">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="titolo" type="xs:string"/>
+                    <xs:element name="testo" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <xs:element name="documenti_identita_e_fiscali">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="carta_identita_elettronica">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="stato_emittente" type="xs:string"/>
+                    <xs:element name="tipo_documento" type="xs:string"/>
+                    <xs:element name="numero_documento" type="xs:string"/>
+                    <xs:element name="comune_emissione" type="xs:string"/>
+                    <xs:element name="cognome" type="xs:string"/>
+                    <xs:element name="nome" type="xs:string"/>
+                    <xs:element name="luogo_data_nascita" type="xs:string"/>
+                    <xs:element name="sesso" type="xs:string"/>
+                    <xs:element name="statura" type="xs:string"/>
+                    <xs:element name="cittadinanza" type="xs:string"/>
+                    <xs:element name="data_emissione" type="xs:string"/>
+                    <xs:element name="data_scadenza" type="xs:string"/>
+                    <xs:element name="dati_retro">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="estremi_atto_nascita" type="xs:string"/>
+                          <xs:element name="indirizzo_residenza" type="xs:string"/>
+                          <xs:element name="codice_fiscale" type="xs:string"/>
+                          <xs:element name="mrz_linea1" type="xs:string"/>
+                          <xs:element name="mrz_linea2" type="xs:string"/>
+                          <xs:element name="mrz_linea3" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="tessera_sanitaria_team_cns">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="denominazione" type="xs:string"/>
+                    <xs:element name="ente" type="xs:string"/>
+                    <xs:element name="cognome" type="xs:string"/>
+                    <xs:element name="nome" type="xs:string"/>
+                    <xs:element name="codice_fiscale" type="xs:string"/>
+                    <xs:element name="data_nascita" type="xs:string"/>
+                    <xs:element name="luogo_nascita" type="xs:string"/>
+                    <xs:element name="provincia_nascita" type="xs:string"/>
+                    <xs:element name="data_scadenza" type="xs:string"/>
+                    <xs:element name="identificativi_team">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ssn_min_salute" type="xs:string"/>
+                          <xs:element name="numero_identificazione_tessera" type="xs:string"/>
+                          <xs:element name="codice_univoco_chip" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
